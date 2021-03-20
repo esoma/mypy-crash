@@ -1,4 +1,4 @@
 
 from mypyc.build import mypycify
 
-mypycify('module.py')
+mypycify(['module.py'])
