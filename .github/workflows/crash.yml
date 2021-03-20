@@ -18,6 +18,10 @@ jobs:
         os: [windows-latest, ubuntu-latest]
         python-version: [3.6, 3.7]
         python-arch: [x86, x64]
+        
+        exclude:
+          - os: ubuntu-latest
+            python-arch: x86
 
     steps:
     - uses: actions/checkout@v2
