@@ -35,7 +35,8 @@ jobs:
         cd mypy
         git submodule update --init mypy/typeshed
         python setup.py develop
-        python setup.py install --use-mypyc
+        set MYPY_USE_MYPYC 1
+        python setup.py install
         cd ..
 
     - name: No Crash
