@@ -35,7 +35,13 @@ jobs:
         cd mypy
         git submodule update --init mypy/typeshed
         python setup.py develop
-        set MYPY_USE_MYPYC=1
+        cd ..
+        
+    - name: Compile Mypy
+      env: 
+        MYPY_USE_MYPYC: 1
+      run: |
+        cd mypy
         python setup.py clean install
         cd ..
 
