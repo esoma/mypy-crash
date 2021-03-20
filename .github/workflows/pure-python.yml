@@ -33,6 +33,7 @@ jobs:
         python -m pip install --upgrade setuptools
         git clone --branch v0.812 --depth 1 https://github.com/python/mypy.git
         cd mypy
+        git submodule update --init mypy/typeshed
         python setup.py develop
         cd ..
 
