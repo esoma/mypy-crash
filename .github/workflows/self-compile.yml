@@ -42,7 +42,7 @@ jobs:
         MYPY_USE_MYPYC: 1
       run: |
         cd mypy
-        python setup.py clean install
+        pip install .
         cd ..
         
     - name: Display Dependencies
