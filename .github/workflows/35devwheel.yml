@@ -1,0 +1,38 @@
+
+name: 3.5-dev-wheel
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.5]
+        python-arch: [x64]
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python ${{ matrix.python-version }}-${{ matrix.python-arch }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+        architecture: ${{ matrix.python-arch }}
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install --upgrade setuptools
+        python -m pip install mypy-0.820+dev.bfc67b6129b3f82a7a6e92eddeedbcfb70440a31-cp35-cp35m-win_amd64.whl
+
+    - name: Maybe Crash
+      run: |
+        python crash.py
