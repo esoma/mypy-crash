@@ -32,6 +32,10 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install --upgrade setuptools
         python -m pip install mypy-0.820+dev.bfc67b6129b3f82a7a6e92eddeedbcfb70440a31-cp36-cp36m-win_amd64.whl
+        
+    - name: Display Dependencies
+      run: |
+        python disdep.py
 
     - name: Maybe Crash
       run: |

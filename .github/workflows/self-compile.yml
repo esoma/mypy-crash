@@ -44,6 +44,10 @@ jobs:
         cd mypy
         python setup.py clean install
         cd ..
+        
+    - name: Display Dependencies
+      run: |
+        python disdep.py
 
     - name: No Crash
       run: |
